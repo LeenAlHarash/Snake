@@ -84,8 +84,8 @@
             y: 160,
             dx: grid,
             dy: 0,
-            cells: [],
-            maxCells: 3
+            squares: [],
+            maxsquares: 3
         };
 
 
@@ -109,7 +109,7 @@
             requestAnimationFrame(loop);
 
             //speed of snake
-            if (++count < 5) return;
+            if (++count < 6) return;
             count = 0;
 
             //clears canvas for new frame
@@ -125,8 +125,8 @@
             if (snake.y < 0) snake.y = canvas.height - grid;
             else if (snake.y >= canvas.height) snake.y = 0;
 
-            snake.cells.unshift({x: snake.x, y: snake.y});
-            if (snake.cells.length > snake.maxCells) snake.cells.pop();
+            snake.squares.unshift({x: snake.x, y: snake.y});
+            if (snake.squares.length > snake.maxsquares) snake.squares.pop();
 
             //Draw apple
             context.fillStyle = 'red';
@@ -134,12 +134,12 @@
 
             //Draw snake
             context.fillStyle = 'green';
-            snake.cells.forEach(function(cell, index) {
-                context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+            snake.squares.forEach(function(square, index) {
+                context.fillRect(square.x, square.y, grid - 1, grid - 1);
 
                 //Check if apple is eaten
-                if (cell.x === apple.x && cell.y === apple.y) {
-                    snake.maxCells++; //snake size +
+                if (square.x === apple.x && square.y === apple.y) {
+                    snake.maxsquares++; //snake size +
                     appleCount++; //apple count +
                     scoreDisplay.textContent = "Apples Eaten: " + appleCount; // Update display
 
@@ -149,8 +149,8 @@
                 }
 
                 //if the snake bites itself
-                for (var i = index + 1; i < snake.cells.length; i++) {
-                    if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                for (var i = index + 1; i < snake.squares.length; i++) {
+                    if (square.x === snake.squares[i].x && square.y === snake.squares[i].y) {
                         gameOver(); // Trigger game over
                         return;
                     }
@@ -198,8 +198,8 @@
             scoreDisplay.textContent = "Apples Eaten: " + appleCount; //Reset display
             snake.x = 160;
             snake.y = 160;
-            snake.cells = [];
-            snake.maxCells = 3;
+            snake.squares = [];
+            snake.maxsquares = 3;
             snake.dx = grid;
             snake.dy = 0;
             apple.x = getRandomInt(0, 25) * grid;
