@@ -97,31 +97,30 @@ function loop() {
 
 //Keyboard control
 document.addEventListener('keydown', function(e) {
-    //left arrow
-    if (e.which === 37 && snake.dx === 0) {
+    //left arrow 
+    if (e.which === 37 || e.which === 65 && snake.dx === 0) {
         snake.dx = -grid;
         snake.dy = 0;
     }
 
     //up arrow
-    else if (e.which === 38 && snake.dy === 0) {
+    else if (e.which === 38 || e.which === 87 && snake.dy === 0) {
         snake.dy = -grid;
         snake.dx = 0;
     }
 
     //right arrow
-    else if (e.which === 39 && snake.dx === 0) {
+    else if (e.which === 39 || e.which === 68 && snake.dx === 0) {
         snake.dx = grid;
         snake.dy = 0;
     }
 
     //down arrow
-    else if (e.which === 40 && snake.dy === 0) {
+    else if (e.which === 40 || e.which === 83 && snake.dy === 0) {
         snake.dy = grid;
         snake.dx = 0;
     }
 });
-
 
 
 //Start game
