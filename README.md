@@ -11,6 +11,10 @@ The goal is to make the snake as large as possible before that happens.
 - CSS
 - JavaScript
 
+# Usage
+- Download all files
+- Run main.html
+  
 # Authors
 - Leen Al Harash
 
