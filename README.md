@@ -19,4 +19,4 @@ The goal is to make the snake as large as possible before that happens.
 - Leen Al Harash
 
 # License
-[MIT](https://choosealicense.com/licenses/mit/)
+- [MIT](https://choosealicense.com/licenses/mit/)
