@@ -13,6 +13,7 @@ The goal is to make the snake as large as possible before that happens.
 
 # Usage
 - Download all files
+- Open in Visual Studio Code
 - Run main.html
   
 # Authors
